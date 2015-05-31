@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+{% block 'body' %}
+    {% load staticfiles %}
+
+    {% if is_paginated %}
+        <div class="pager">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="/interview?page={{ page_obj.previous_page_number }}">
+                        <img src="{% static 'images/prev.png' %}" class="prev"/>
+                    </a>
+                {% endif %}
+                <span class="page-current" style="float:left;margin">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="/interview?page={{ page_obj.next_page_number }}">
+                        <img src="{% static 'images/next.png' %}" class="next"/>
+                    </a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+    <table id="interview_table">
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for interview in interviews %}
+                <tr class="even">
+                    <td>
+                        <strong>{{ interview.question }}</strong>
+                    </td>
+                    <td><a href="/interview/{{ interview.id }}">View More Details</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,572 @@
+
+/* DO NOT TOUCH RESET STYLES */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+body {
+	line-height: 1;
+	color: black;
+	background: white;
+}
+ol, ul {
+	list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+
+/*  END RESET STYLES */
+
+a { cursor: pointer; }
+strong { font-weight: bold;}
+p { padding: 5px 0; font-size: 12px;}
+h4{
+	font-size: 16px;
+	font-weight: bold;
+	color: #E5BA0D;
+	padding: 10px 0;
+	font-family: Georgia, serif;
+	text-align: left;
+}
+body { 
+	background: #000 url(../images/main_bg.jpg) center -150px no-repeat; 
+	font-family: Verdana, Arial, sans-serif; 
+	font-size: 14px; 
+	width: 100%; 
+	text-align: center;
+	line-height: 1.2em;
+	letter-spacing: .025em;
+	color: #FFF;
+}
+
+	body.landing {
+		background: #000 url(../images/main_bg.jpg) top center no-repeat; 
+	}
+	
+	
+iframe { margin: 25px auto; }
+.amazon_links { width: 100%; text-align: center;}
+.shell {
+	width: 960px;
+	margin: 0 auto;
+	text-align: center;
+	clear:both;
+}
+
+	.wrapper {
+		float: left; clear: both;
+		width: 100%;
+		text-align: left;
+	}
+	
+	.landing .content { min-height: 500px; }
+		.logo {
+		 	float: left;
+		 	margin-top: 25px;
+		 }
+		 
+		 .landing .logo {
+			margin-top: 200px;
+			width: 100%;
+			text-align: center;
+		 }
+		 
+		 
+		 
+		 .other { margin-top: 60px !important;}
+		
+		.search_box { float: right; margin: 40px 0;}
+		.landing .search_box { width: 500px; margin: 25px auto;padding: 15px; float: none;text-align: center; clear: both;}
+		
+		.search_box input {
+			padding: 5px 10px;
+			font-size: 18px;
+			background: #333;
+			border: 2px solid #FFF;
+			float: left;
+			margin-left: 50px;
+			margin-top: 10px;
+			color: #FFF;
+		}
+		
+		.search_box button {
+			cursor: pointer;
+			border: 0 none;
+			background: transparent;
+			float: left;
+		}
+		
+		span.answer { font-size: 12px;}
+			.browse {
+				clear: both;
+				font-size: 16px;
+				width: 100%;
+				margin: 25px auto;
+				text-align: center;
+				color: #FFF;
+			}
+			
+				.browse ul {
+					float: left;
+					margin-left: 45px;
+					margin-top: 65px;
+					background: url(../images/nav_bg.png) top left repeat-x;
+				}
+				.landing .browse ul { margin-left: 50px;}	
+					.browse ul li { 
+						float:left;
+						margin-top:2px;
+						padding:11px 23px;
+					}
+					.browse ul li:first-child { border-left: 1px solid #666A76; }
+					.browse ul li:last-child { border-right: 1px solid #666A76;}
+					.browse ul li.wheel { margin-top: -60px; }
+					.browse a {
+						color: #FFF;
+						font-size: 12px;
+						text-decoration: none;
+					}
+					
+					.browse a:hover {
+						color: #E5BA0D;
+					}
+					
+
+	.letterator {
+		float: left;
+		width: 800px;
+		text-align: center;
+		color: #FFF;
+		padding: 5px;
+	}
+	 	.letterator a {
+			font-size: 14px;
+			padding: 0 5px;
+			color: #FFF;
+			font-family: Georgia, serif;
+			text-decoration: none;
+		}
+		
+	.paginator {
+		float: left;
+		clear: both;
+		color: #FFF;
+		padding: 5px;
+		
+		margin-left: 50px;
+	}
+		.paginator a {
+			color: #FFF;
+			font-size: 12px;
+			font-family: Georgia, serif;
+			text-decoration: none;
+		}
+										   
+			.paginator a:visited, .letterator a:visited { color: #EFBF00;}
+			.paginator a:hover, .letterator a:hover { color: #E5BA0D; text-decoration: underline;}
+			
+	table { 
+		width: 800px;
+		margin: 15px auto;
+		color: #000;
+		clear: both;
+	}
+		table thead { background: url(../images/nav_bg.png) top left repeat-x; }
+		table thead th { padding: 8px 12px; color: #c9c9c9; border: 1px solid #ccc;}
+		table tbody td { padding: 8px 12px; }
+		table tbody tr { background: #f1f1f1;}
+		table tbody tr.even { background: #eaeaea;}
+		
+		table tbody tr:hover { background: #FFF1AF; }
+		table tbody tr.hide, table tbody tr.hide2 { display: none; }
+		table tbody td a { font-size: 14px; color: #333;}
+		table tbody td a:hover { color: #333;}
+					
+	
+	
+	.character {
+		width: 100%;
+		color: #FFF;
+		text-align: left;
+		float: left;
+		clear: both;
+	}
+	
+	.smallcol { width: 235px; }
+	.bigcol { width: 680px;}
+	.smallcol, .bigcol { float: left; }
+		.smallcol .box, .bigcol .box { clear: both;} 
+		.character h1 {
+			font-size: 22px;
+			font-family: Arial, Verdana, sans-serif;
+			color: #FFF;
+			margin-left: 15px;
+		}
+		
+		.character h2 {
+		    font-size: 16px; font-style: italic;
+		    margin: 10px 0;
+		}
+		
+		.character h4 {
+			font-size: 16px;
+			font-weight: bold;
+			color: #E5BA0D;
+			font-family: Georgia, serif;
+		}
+			
+			h4.results a { color: #FFF; }
+		.character h5 { font-weight: bold;}
+		.character p { font-size: 12px; padding: 5px 0}
+	
+			.box { 
+				float: left;
+				padding: 15px;
+				margin-top: 15px;
+				/* background: url(../images/box_gradient.png) bottom left repeat-x;*/
+				min-height: 167px;
+			}
+			
+				.box a { color: #FFF; }
+			
+				.box ul li a {
+					color: #FFF;
+					font-size: 12px;
+				}
+				
+				.box ul li a:hover { color: #E5BA0D; }
+				.basic {
+					width: 200px;
+				}	
+				
+				.description {
+					margin: 15px 0 0 15px;
+					padding-top:15px;
+					width: 680px;
+					min-height: 167px;
+				}
+				
+				.aiel, .channeler {
+					clear: left;
+					width: 200px;
+					margin: 15px 0;
+				}
+			
+			.character .description { float: left;}
+			.character table { width: 681px; float: left; margin-bottom: 0; margin-left: 15px;}
+	 	h4.results {
+			float: left;
+			clear: both;
+			margin: 5px;
+			font-size: 12px;
+			font-weight: bold;
+			color: #E5BA0D;
+			margin-left: 80px;
+			
+			font-family: Georgia, serif;
+		}
+		
+				
+	.thanks_list { 
+		font-size:12px;
+		list-style-type:disc;
+		margin-left:25px;
+	}
+		.thanks_list a {
+			color: #E5BA0D !important;;
+		}	
+	.footer {
+		width: 100%;
+		text-align: center;
+		font-size: 10px;
+		color: #FFF;
+	}
+		.footer p {
+			float: left;
+			clear: both;
+			font-size: 10px;
+		}
+		
+		.footer p a { color: #E5BA0D;}
+	.pager { 
+		position: static !important;
+		float: right;
+		clear: both;
+		margin: 10px 75px;
+	}
+	.character .pager { 
+		margin: 10px 55px 0 10px;
+	}
+		.pager img { float: left; padding: 0 3px; cursor: pointer;}
+		.pager .page-current { padding: 2px 15px; }
+	
+	.about {
+		text-align: left;
+		width: 100%;
+	}
+		
+		
+		.about p {
+			font-size: 12px;
+			font-weight: normal;
+			color: #FFF;
+			padding: 5px 0;
+		}
+		
+		.about a {
+			color: #E5BA0D;
+		}
+	
+	.contact { float: left; width: 630px; margin-left: 28px;}
+	
+	.oops { 
+		float: right;
+		background: url(../images/error.png) left center no-repeat;
+		padding: 10px 30px;
+	}
+	#oops fieldset, .contact fieldset {
+		float: left; clear: both;
+		padding: 10px;
+	}
+	
+	#oops label, .contact label {
+		float: left;
+		clear: both;
+		margin: 5px 0;
+	}
+	
+	#oops fieldset { position: relative; width: 300px;}
+	
+	.contact fieldset { position: static;}
+	#oops input, #oops textarea, .contact input, .contact textarea {
+		float: left;
+		clear: both;
+		border: 1px solid #E5BA0D;
+		font-size: 14px;
+		padding: 3px;
+		position:static;
+	}
+	
+	#oops button, .contact button {
+		background: transparent;
+		border: 0 none;
+		cursor: pointer;
+	}
+	
+		.consider {
+			list-style-type: disc;
+			font-size: 12px;
+			margin: 15px 25px;
+		}
+	
+	#oops_container {
+		display: none;
+		position: absolute;
+		width: 960px;
+		height: 500px;
+		text-align: center;
+		margin-top: -150px;
+	}
+	#oops {
+		margin: 0 auto;
+		width: 500px;
+		height: 515px;
+		background: #FFF;
+		border: 2px solid #E5BA0D;
+		-moz-border-radius: 8px;
+		color: #000;
+	}
+		#oops h4 { padding: 10px; margin-top: 10px;}
+		#oops h4 a { float: right; margin-top: -10px; }
+		
+	.nothing {
+		background: url(../images/prints.png) top left no-repeat;
+		margin-top: 150px;
+		min-height: 650px;
+	}
+	
+		.nothing h1 { font-size: 24px; font-family: Georgia, serif; color: #E5BA0D; margin: 10px;}
+		.nothing h2 { font-size: 18px; font-family: Arial, sans-serif; margin: 10px;}
+		.nothing h3 { font-size: 28px; font-family: Georgia, serif; color: #E5BA0D; margin: 15px 0;}
+			.nothing div.message {
+				float: right;
+				margin-top: 300px;
+				width: 325px;
+			}
+			.nothing .error {
+				float: left;
+				width: 350px;
+				margin-top: 10px;
+			}
+			.nothing p { 
+				font-size: 14px;}
+			.nothing a { color: #E5BA0D; text-decoration: none;}
+	.nav_links {
+		float: left;
+		clear: both;
+		width: 960px;
+		margin-top: 10px;
+	}
+	
+		.nav_links a {
+			color: #E5BA0D;
+			padding: 0;
+			margin: 0;
+		}
+		
+		.nav_links .prev { float: left; }
+		
+		.nav_links .next { float: right;}
+		.pts .fan_box .connections { color: #FFF; }
+		
+p.credit { font-size: 10px; font-style: italic; text-align: right;}
+	.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    }
+
+.clearfix {display: inline-block;}  /* for IE/Mac */
+
+.login {
+	width: 100%;
+}
+
+.login fieldset {
+	float: left;
+	width: 400px;
+}
+.login fieldset label { clear: both;float: left; margin: 5px 0;}
+.login fieldset input { clear: both; float: left; margin: 5px 0; }
+.login fieldset .checkboxes input { clear: left; }
+.login fieldset .checkboxes label { clear: none; margin: 5px;}
+.login fieldset button { float: left; clear: both; margin: 15px 0;}
+
+.alert {
+	float: left;
+	width: 80%;
+	clear: both;
+	padding: 10px;
+	margin: 0 85px;
+}
+
+	.error {
+		background: #FFEEEE;
+		border: 1px solid #990000;
+		color: #990000;
+	}
+	
+	.success {
+		background: #EEFFEE;
+		border: 1px solid #99CC99;
+		color: #336633;
+	}
+	
+	.editor fieldset label {
+		float: left;
+		clear: both;
+		margin: 10px 0 5px;
+		font-size: 16px;
+		width: 500px;
+		padding: 3px;
+	}
+	
+	.editor fieldset input {
+		float: left;
+		clear: both;
+		margin: 5px 0;
+		font-size: 16px;
+		padding: 3px;
+		width: 500px;
+	}
+	
+	.editor fieldset select {
+		float: left;
+		clear: both;
+		margin: 5px 0;
+		font-size: 16px;
+		padding: 3px;
+		width: 500px;
+	}
+	
+	.editor fieldset textarea {
+		float: left;
+		clear: both;
+		margin: 5px 0;
+		width: 500px;
+		min-height: 150px;
+		height: auto;
+		font-size: 16px;
+		padding: 3px;
+	}
+	
+	.editor fieldset button {
+		float: left;
+		clear: both;
+		margin: 10px 0;
+	}
+	
+	button.edit {
+		background: url(../images/wrench_orange.png) left center no-repeat;
+		border: 0 none;
+		color: #FFF;
+		float: right;
+		padding-left: 20px;
+		cursor: pointer;
+	}
+	
+	.login button { background: none; border: 0 none; cursor: pointer; }
+	
+	.login_link {
+		float: right;
+		color: #FFF;
+		cursor: pointer;
+		font-size: 14px;
+	}
+	
+	.logout_link {
+		float: right;
+		color: #FFF;
+		cursor: pointer;
+		font-size: 11px;
+		text-decoration: none;
+		padding: 0 5px;
+	}
+	
+	.bigcol h4 { margin-left: 15px; }

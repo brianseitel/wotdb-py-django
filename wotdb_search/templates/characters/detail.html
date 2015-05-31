@@ -1,0 +1,124 @@
+{% extends 'main.html' %}
+
+{% block 'body' %}
+<div class="character">
+    
+    <h1>{{ character.name }}</h1>
+
+    {% if character.title.length %}
+        <h2>{{ character.title }}</h2>
+    {% endif %}
+
+    <div class="smallcol">
+        <div class="box basic">
+            <h4>Basic Info</h4>
+            
+            <h5>Gender</h5>
+            <p>{{ character.gender }}</p>
+
+            <h5>Class</h5>
+            <p>
+                {% if character.job %}
+                    <a href="/job/view/{{ character.job_id }}">{{ character.job}}</a>
+                {% else %}
+                    Unknown
+                {% endif %}
+            </p>
+            
+            {% if character.city or character.country %}
+                <h5>Nationality</h5>
+                <p>
+                    {% if character.city %}
+                        <a href="/place/{{ character.city_id }}">{{ character.city }}</a>
+                    {% endif %}
+
+                    {% if character.country %}
+                        <a href="/place/{{ character.country_id }}">{{ character.country }}</a>
+                    {% endif %}
+                </p>
+            {% endif %}
+        </div>
+        
+        {% if character.is_aiel %}
+            <div class="box aiel">
+                <h4>Aiel</h4>
+                <h5>Sept</h5>
+                <p>
+                    {% if character.sept %}
+                        {{ character.sept }}
+                    {% else %}
+                        Unknown
+                    {% endif %}
+                </p>
+                <h5>Clan</h5>
+                <p>
+                    {% if character.clan %}
+                        {{ character.clan }}
+                    {% else %}
+                        Unknown
+                    {% endif %}
+                </p>
+
+                <h5>Society</h5>
+                <p>
+                    {% if character.society %}
+                        {{ character.society }}
+                    {% else %}
+                        Unknown
+                    {% endif %}
+                </p>
+            </div>
+        {% endif %}
+    
+        {% if character.isChanneler %}    
+            <div class="box channeler">
+                <h4>Channeler Info</h4>
+                <h5>Type</h5>
+                <p>{{ character.channelertype }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="bigcol">
+        <div class="box description">
+            <h4>Description</h4>
+            <p>
+                {% if character.description %}
+                    {{ character.description }}
+                {% else %}
+                    No description available for this character.
+                {% endif %}
+            </p>
+            <p class="credit">For more details on {{ character.name }}, visit <a href="http://www.encyclopaedia-wot.org" style="color:#E5BA0D" target="_blank">Encyclopaedia WoT</a>.</p>
+        </div>
+
+        <div class="description">
+            <h4 style="margin-left: 15px;">Points of View (0 Total)</h4>
+            {% load characters %}
+            {% pov_list character page %}
+        </div>
+
+        <div class="description">
+            <h4 style="margin-left: 15px;">Interview Questions (0 total)</h4>
+            <table id="interview_table">
+                <thead>
+                    <tr>
+                        <th>Question</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="even">
+                        <td>
+                            <strong>Question</strong>
+                            <br/>
+                            Answer goes here
+                        </td>
+                        <td><a href="/interview/SOME_ID_HERE">View More Details</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

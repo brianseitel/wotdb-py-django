@@ -1,0 +1,83 @@
+{% extends 'main.html' %}
+
+{% block 'body' %}
+    <div class="character">
+        <h1>{{ place.name }}</h1>
+        <h2>{{ place.place_type }}</h2>
+
+        <div class="smallcol">
+            <div class="box basic">
+                <h4>Basic Info</h4>
+                
+                {% if place.ruler %}
+                    <h5>Ruler</h5>
+                    <p>{{ place.ruler }}</p>
+                {% endif %}
+
+                {% if place.allegiance %}
+                    <h5>Allegiance</h5>
+                    <p>
+                        {% if place.allegiance %}
+                            {{ place.allegiance }}
+                        {% else %}
+                            Unknown
+                        {% endif %}
+                    </p>
+                {% endif %}
+            </div>
+
+            {% if place.cities.length %}
+                <div class="box basic">
+                    <h4>Cities/Towns in {{ place.name }}</h4>
+                    <ul>
+                        {% for city in place.cities %}
+                            <li><a href="/place/{{ city.id }}">{{ city.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+        
+        <div class="bigcol">
+            <div class="box description">
+                <h4>Description</h4>
+                <p>
+                    {% if place.description %}
+                        {{ place.description }}
+                    {% else %}
+                        No description found for this region.
+                    {% endif %}
+                </p>
+            </div>
+            
+            <div class="description">
+                <h4 style="margin-left: 15px;">Characters in {{ place.name }} ({{ place.characters.count }} Total)</h4>
+                {% load characters %}
+                {% character_list place.characters page %}
+            </div>
+                
+
+            <div class="description">
+                <h4 style="margin-left: 15px;">Interviews (0 Total)</h4>
+                <table id="interview_table">
+                    <thead>
+                        <tr>
+                            <th>Question</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="even">
+                            <td>
+                                <strong>QUESTION</strong>
+                                <br/>
+                                ANSWER GOES HERE
+                            </td>
+                            <td><a href="/interviews/SOME_ID_HERE">View More Details</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

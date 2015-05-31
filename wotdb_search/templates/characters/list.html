@@ -1,0 +1,57 @@
+{% load staticfiles %}
+    {% if is_paginated %}
+        <a name="pager" id="pager"></a>
+        <div class="pager">
+            <span class="page-links">
+                {% if character_list.has_previous %}
+                    <a href="{{ request.path }}?page={{ character_list.previous_page_number }}#pager">
+                        <img src="{% static 'images/prev.png' %}" class="prev"/>
+                    </a>
+                {% endif %}
+                <span class="page-current" style="float:left;margin">
+                    Page {{ character_list.number }} of {{ character_list.paginator.num_pages }}
+                </span>
+                {% if character_list.has_next %}
+                    <a href="{{ request.path }}?page={{ character_list.next_page_number }}#pager">
+                        <img src="{% static 'images/next.png' %}" class="next"/>
+                    </a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+    <table id="characters_table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Nationality</th>
+                <th>Class</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if character_list.object_list > 0 %}
+                {% for character in character_list.object_list %}
+                    {% cycle 'even' '' as rowcolors silent %}
+                    <tr class="{{ rowcolors }}">
+                        <td><a href="/character/{{ character.id }}">{{ character.name }}</a></td>
+                        <td>
+                            {% if character.country %}
+                                <a href="/places/{{ character.country_id }}">{{ character.country }}</a>
+                            {% else %}
+                                Unknown
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if character.job %}
+                                <a href="/jobs/{{ character.job_id }}">{{ character.job }}</a>
+                            {% else %}
+                                Unknown
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr><td colspan="3">No characters available.</td></tr>
+            {% endif %}
+        </tbody>
+        
+    </table>

@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block 'body' %}
+    <div class="character">
+        <h1>{{ interview.name }}</h1>
+        <h2>{{ interview.date }}</h2>
+        
+        <div class="box description">
+            <h4>{{ interview.author }} has spoken...</h4>
+            <h5>{{ interview.question }}</h5>
+            <p> {{ interview.answer }}</p>
+        </div>
+    </div>
+{% endblock %}
