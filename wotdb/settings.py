@@ -38,7 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'wotdb_search',
-    'wotdb_search.templatetags'
+    'wotdb_search.templatetags',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -85,6 +85,7 @@ DATABASES = {
     }
 }
 
+ES_HOST = '127.0.0.1:9200'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
