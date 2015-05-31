@@ -2,55 +2,66 @@
 {% block 'body' %}
     {% load staticfiles %}
 
-    {% if is_paginated %}
-        <div class="pager">
-            <span class="page-links">
-                {% if page_obj.has_previous %}
-                    <a href="/chapter?page={{ page_obj.previous_page_number }}">
-                        <img src="{% static 'images/prev.png' %}" class="prev"/>
-                    </a>
-                {% endif %}
-                <span class="page-current" style="float:left;margin">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-                </span>
-                {% if page_obj.has_next %}
-                    <a href="/chapter?page={{ page_obj.next_page_number }}">
-                        <img src="{% static 'images/next.png' %}" class="next"/>
-                    </a>
-                {% endif %}
-            </span>
+    <div class="character">
+        <h1>Characters in {{ chapter.book.title }}, Chapter {{ chapter.number }} - {{ chapter.title }}</h1>
+        <br/>
+        <div class="smallcol">
+            <div class="box basic">
+                <p>The character(s) to the right have a Point of View in this chapter. That is, the story is told through their eyes.</p>
+            </div>
         </div>
-    {% endif %}
-    <table id="characters_table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Nationality</th>
-                <th>Class</th>
-            </tr>
-        </thead>
-        <tbody>
-                {% for pov in chapter.characters %}
-                    {% cycle 'even' '' as rowcolors silent %}
-                    <tr class="{{ rowcolors }}">
-                        <td><a href="/character/{{ pov.character.id }}">{{ pov.character.name }}</a></td>
-                        <td>
-                            {% if pov.character.country %}
-                                <a href="/places/{{ pov.character.country_id }}">{{ pov.character.country }}</a>
-                            {% else %}
-                                Unknown
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if pov.character.job %}
-                                <a href="/jobs/{{ pov.character.job_id }}">{{ pov.character.job }}</a>
-                            {% else %}
-                                Unknown
-                            {% endif %}
-                        </td>
+        <div class="bigcol">
+            {% if is_paginated %}
+                <div class="pager">
+                    <span class="page-links">
+                        {% if page_obj.has_previous %}
+                            <a href="/chapter?page={{ page_obj.previous_page_number }}">
+                                <img src="{% static 'images/prev.png' %}" class="prev"/>
+                            </a>
+                        {% endif %}
+                        <span class="page-current" style="float:left;margin">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        </span>
+                        {% if page_obj.has_next %}
+                            <a href="/chapter?page={{ page_obj.next_page_number }}">
+                                <img src="{% static 'images/next.png' %}" class="next"/>
+                            </a>
+                        {% endif %}
+                    </span>
+                </div>
+            {% endif %}
+            <table id="characters_table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Nationality</th>
+                        <th>Class</th>
                     </tr>
-                {% endfor %}
-        </tbody>
-        
-    </table>
+                </thead>
+                <tbody>
+                        {% for pov in chapter.characters %}
+                            {% cycle 'even' '' as rowcolors silent %}
+                            <tr class="{{ rowcolors }}">
+                                <td><a href="/character/{{ pov.character.id }}">{{ pov.character.name }}</a></td>
+                                <td>
+                                    {% if pov.character.country %}
+                                        <a href="/place/{{ pov.character.country_id }}">{{ pov.character.country }}</a>
+                                    {% else %}
+                                        Unknown
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if pov.character.job %}
+                                        <a href="/job/{{ pov.character.job_id }}">{{ pov.character.job }}</a>
+                                    {% else %}
+                                        Unknown
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                </tbody>
+                
+            </table>
+        </div>
+    </div>
 {% endblock %}

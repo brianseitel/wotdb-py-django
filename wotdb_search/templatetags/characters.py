@@ -6,7 +6,7 @@ register = template.Library()
 from wotdb_search.models import Character, PointOfView
 
 def character_list(context, characters, page):
-    paginator = Paginator(characters, 10)
+    paginator = Paginator(characters, 25)
 
     try:
         character_list = paginator.page(page)
@@ -24,7 +24,7 @@ register.inclusion_tag('characters/list.html', takes_context=True)(character_lis
 def pov_list(context, character, page):
     povs = PointOfView.objects.all().filter(character_id=character.id).order_by('book__number')
     paginator = Paginator(povs, 10)
-    
+
     try:
         pov_list = paginator.page(page)
     except PageNotAnInteger:

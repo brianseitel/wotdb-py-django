@@ -19,7 +19,7 @@
             <h5>Class</h5>
             <p>
                 {% if character.job %}
-                    <a href="/job/view/{{ character.job_id }}">{{ character.job}}</a>
+                    <a href="/job/{{ character.job_id }}">{{ character.job}}</a>
                 {% else %}
                     Unknown
                 {% endif %}
@@ -93,13 +93,13 @@
         </div>
 
         <div class="description">
-            <h4 style="margin-left: 15px;">Points of View (0 Total)</h4>
+            <h4 style="margin-left: 15px;">Points of View</h4>
             {% load characters %}
             {% pov_list character page %}
         </div>
 
         <div class="description">
-            <h4 style="margin-left: 15px;">Interview Questions (0 total)</h4>
+            <h4 style="margin-left: 15px;">Interview Questions</h4>
             <table id="interview_table">
                 <thead>
                     <tr>

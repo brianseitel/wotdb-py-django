@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 from django.template.loader import get_template
 
-from .models import Character, Place, Interview, PointOfView, Book, Chapter
+from .models import Character, Place, Interview, PointOfView, Book, Chapter, Job
 # Create your views here.
 
 class IndexView(generic.TemplateView):
@@ -67,6 +67,17 @@ class InterviewList(generic.ListView):
 class InterviewDetail(generic.DetailView):
     model = Interview
     template_name = 'interviews/detail.html'
+
+class JobDetail(generic.DetailView):
+    model = Job
+    template_name = 'jobs/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(JobDetail, self).get_context_data(**kwargs)
+        page = self.request.GET.get('page')
+        context['characters'] = Character.objects.all().filter(job_id=self.kwargs['pk']).extra(order_by=['name'])
+        context['page'] = page
+        return context
 
 class PointOfViewList(generic.ListView):
     template_name = 'povs/index.html'

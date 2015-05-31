@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% block 'body' %}
+
+    <div class="character">
+        <h1>{{ job.name }}</h1>
+        <div class="smallcol">
+            <div class="box basic">
+                <h5>Description</h5>
+                <p> {{ job.description }} </p>
+            </div>
+        </div>
+         <div class="bigcol">
+            {% load characters %}
+            {% character_list characters page %}
+        </div>
+    </div>
+{% endblock %}

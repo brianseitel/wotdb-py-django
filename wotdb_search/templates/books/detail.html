@@ -1,44 +1,34 @@
 {% extends 'main.html' %}
 {% block 'body' %}
-    {% load staticfiles %}
-
-    {% if is_paginated %}
-        <div class="pager">
-            <span class="page-links">
-                {% if page_obj.has_previous %}
-                    <a href="/chapter?page={{ page_obj.previous_page_number }}">
-                        <img src="{% static 'images/prev.png' %}" class="prev"/>
-                    </a>
-                {% endif %}
-                <span class="page-current" style="float:left;margin">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-                </span>
-                {% if page_obj.has_next %}
-                    <a href="/chapter?page={{ page_obj.next_page_number }}">
-                        <img src="{% static 'images/next.png' %}" class="next"/>
-                    </a>
-                {% endif %}
-            </span>
+    <div class="character">
+        <h1>Chapters in {{ book.title }}</h1>
+        <br/>
+        <div class="smallcol">
+            <div class="box basic">
+                <p>Choose a book, then a chapter to discover all the Points of View for that chapter.</p>
+            </div>
         </div>
-    {% endif %}
-    <table id="places_table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Nationality</th>
-                <th>Class</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for chapter in book.chapters %}
-                {% cycle 'even' '' as rowcolors silent %}
-                <tr class="{{ rowcolors }}">
-                    <td>{{ chapter.number }}</td>
-                    <td><a href="/chapter/{{ chapter.id }}">{{ chapter.title }}</a></td>
-                    <td><a href="/chapter/{{ chapter.id }}">View Characters</a></td>
-                </tr>
-            {% endfor %}
-        </tbody>
-        
-    </table>
+        <div class="bigcol">
+            <table id="places_table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Nationality</th>
+                        <th>Class</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for chapter in book.chapters %}
+                        {% cycle 'even' '' as rowcolors silent %}
+                        <tr class="{{ rowcolors }}">
+                            <td>{{ chapter.number }}</td>
+                            <td><a href="/chapter/{{ chapter.id }}">{{ chapter.title }}</a></td>
+                            <td><a href="/chapter/{{ chapter.id }}">View Characters</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
 {% endblock %}

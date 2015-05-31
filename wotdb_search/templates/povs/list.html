@@ -28,14 +28,20 @@
         </tr>
     </thead>
     <tbody>
-        {% for pov in pov_list %}
-            {% cycle 'even' '' as rowcolors silent %}
-            <tr class="{{ rowcolors }}">
-                <td>{{ pov.book.title }}</td>
-                <td>{{ pov.chapter.number }}</td>
-                <td>{{ pov.chapter.title }}</td>
+        {% if pov_list.object_list %}
+            {% for pov in pov_list %}
+                {% cycle 'even' '' as rowcolors silent %}
+                <tr class="{{ rowcolors }}">
+                    <td>{{ pov.book.title }}</td>
+                    <td>{{ pov.chapter.number }}</td>
+                    <td>{{ pov.chapter.title }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="3">No POVs available for this character.</td>
             </tr>
-        {% endfor %}
+        {% endif %}
     </tbody>
     
 </table>

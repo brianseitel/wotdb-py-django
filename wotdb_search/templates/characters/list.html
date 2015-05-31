@@ -35,14 +35,14 @@
                         <td><a href="/character/{{ character.id }}">{{ character.name }}</a></td>
                         <td>
                             {% if character.country %}
-                                <a href="/places/{{ character.country_id }}">{{ character.country }}</a>
+                                <a href="/place/{{ character.country_id }}">{{ character.country }}</a>
                             {% else %}
                                 Unknown
                             {% endif %}
                         </td>
                         <td>
                             {% if character.job %}
-                                <a href="/jobs/{{ character.job_id }}">{{ character.job }}</a>
+                                <a href="/job/{{ character.job_id }}">{{ character.job }}</a>
                             {% else %}
                                 Unknown
                             {% endif %}

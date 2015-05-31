@@ -35,7 +35,9 @@ class Interview(models.Model):
     date     = models.CharField(max_length=32, default="")
 
 class Job(models.Model):
-    name = models.CharField(max_length=100)
+    name        = models.CharField(max_length=100)
+    description = models.TextField(null=True)
+
     def __unicode__(self):
         return self.name
 

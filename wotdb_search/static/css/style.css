@@ -239,7 +239,7 @@ iframe { margin: 25px auto; }
 		
 		.character h2 {
 		    font-size: 16px; font-style: italic;
-		    margin: 10px 0;
+		    margin: 10px 15px;
 		}
 		
 		.character h4 {
@@ -568,5 +568,3 @@ p.credit { font-size: 10px; font-style: italic; text-align: right;}
 		text-decoration: none;
 		padding: 0 5px;
 	}
-	
-	.bigcol h4 { margin-left: 15px; }

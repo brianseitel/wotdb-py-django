@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^character/(?P<pk>[0-9]+)/$', views.CharacterView.as_view(),     name="character"),
     url(r'^interview/$',                views.InterviewList.as_view(),     name="interview_list"),
     url(r'^interview/(?P<pk>[0-9]+)/$', views.InterviewDetail.as_view(),   name="interview"),
+    url(r'^job/(?P<pk>[0-9]+)/$',       views.JobDetail.as_view(),         name="job"),
     url(r'^place/$',                    views.PlacesIndexView.as_view(),   name="places_index"),
     url(r'^place/(?P<pk>[0-9]+)/$',     views.PlaceView.as_view(),         name="place"),
     url(r'^pov/$',                      views.PointOfViewList.as_view(),   name="pov_list"),
