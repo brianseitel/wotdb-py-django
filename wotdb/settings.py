@@ -85,7 +85,7 @@ DATABASES = {
     }
 }
 
-ES_HOST = '127.0.0.1:9200'
+ES_HOST = 'http://localhost:9200'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
