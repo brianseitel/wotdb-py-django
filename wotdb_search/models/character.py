@@ -97,20 +97,30 @@ class Character(models.Model):
 
         if (self.clan):
             doc['clan'] = self.clan.name
+            doc['clan_id'] = self.clan_id
 
         if (self.sept):
             doc['sept'] = self.sept.name
+            doc['sept_id'] = self.sept_id
 
         if (self.channeler_type):
             doc['channeler_type'] = self.channeler_type.name
+            doc['channeler_type_id'] = self.channeler_type_id
 
         if (self.society):
             doc['society'] = self.society.name
+            doc['society_id'] = self.society_id
 
         if (self.city):
             doc['city'] = self.city.name
+            doc['city_id'] = self.city_id
 
         if (self.country):
             doc['country'] = self.country.name
+            doc['country_id'] = self.country_id
+
+        if (self.job):
+            doc['job'] = self.job.name
+            doc['job_id'] = self.job_id
 
         return doc

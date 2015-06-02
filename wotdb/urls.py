@@ -31,5 +31,6 @@ urlpatterns = [
     url(r'^place/(?P<pk>[0-9]+)/$',     views.PlaceView.as_view(),         name="place"),
     url(r'^pov/$',                      views.PointOfViewList.as_view(),   name="pov_list"),
     url(r'^pov/(?P<pk>[0-9]+)/$',       views.PointOfViewDetail.as_view(), name="pov"),
+    url(r'^search/$',                   views.search, name="search"),
     # url(r'^admin/', include(admin.site.urls)),
 ]

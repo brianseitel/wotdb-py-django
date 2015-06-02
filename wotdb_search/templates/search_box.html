@@ -1,1 +1,8 @@
-<input type="text" name="search_box" placeholder="Search Box"/>
+{% load staticfiles %}
+<form method="POST" action="/search/">
+	<div class="search_box">
+		{% csrf_token %}
+		<input type="text" name="terms" id="terms" value="{{ request.POST.terms }}"/>
+		<button type="submit"><img src="{% static 'images/search_btn.png' %}" alt="Search"/></button>
+	</div>
+</form>

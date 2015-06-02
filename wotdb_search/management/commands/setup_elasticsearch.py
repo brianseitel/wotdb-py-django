@@ -11,6 +11,7 @@ class Command(BaseCommand):
 
         # CREATE NEW INDEX
         data = {
+            'dynamic': 'strict',
             'settings': {
                 'number_of_shards': 1,
                 'number_of_replicas': 1
@@ -18,20 +19,29 @@ class Command(BaseCommand):
             'mappings': {
                 'all': {
                     "properties": {
-                        "name":           {'type': "string"},
-                        "description":    {"type": "string"},
-                        "gender":         {"type": "string"},
-                        "title":          {"type": "string"},
-                        "allegiance":     {"type": "string"},
-                        "age":            {"type": "string"},
-                        "alignment":      {"type": "string"},
-                        "status":         {"type": "string"},
-                        "clan":           {"type": "string"},
-                        "sept":           {"type": "string"},
-                        "channeler_type": {"type": "string"},
-                        "society":        {"type": "string"},
-                        "city":           {"type": "string"},
-                        "country":        {"type": "string"},
+                        "name":              {'type': "string"},
+                        "description":       {"type": "string"},
+                        "gender":            {"type": "string"},
+                        "title":             {"type": "string"},
+                        "allegiance":        {"type": "string"},
+                        "age":               {"type": "string"},
+                        "alignment":         {"type": "string"},
+                        "status":            {"type": "string"},
+                        "clan":              {"type": "string"},
+                        "clan_id":           {"type": "integer"},
+                        "sept":              {"type": "string"},
+                        "clan_id":           {"type": "integer"},
+                        "channeler_type":    {"type": "string"},
+                        "channeler_type_id": {"type": "integer"},
+                        "society":           {"type": "string"},
+                        "society_id":        {"type": "integer"},
+                        "city":              {"type": "string"},
+                        "city_id":           {"type": "integer"},
+                        "country":           {"type": "string"},
+                        "country_id":        {"type": "integer"},
+                        "job":               {"type": "string"},
+                        "job_id":            {"type": "integer"},
+
                     }
                 }
             }

@@ -1,11 +1,38 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponseRedirect, HttpRequest
+from django.http import HttpResponse, HttpResponseRedirect, HttpRequest
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.template.loader import get_template
+from elasticsearch import Elasticsearch
+import json
 
 from .models import Character, Place, Interview, PointOfView, Book, Chapter, Job
 # Create your views here.
+
+def search(request):
+    query = request.POST['terms']
+    es = Elasticsearch()
+    res = es.search(index="wotdb_character",doc_type="all", body={
+        "query": {
+            "bool": {
+                "should": [
+                    {
+                        "match": { "name": { "query": query, "boost": 2, "fuzziness": 2}}
+                    },
+                    {
+                        "fuzzy_like_this": { "like_text": query, "max_query_terms": 12, "boost": 0.5 }
+                    }
+                ]
+            }
+        },
+        "fields": ["id", "name", "job", "job_id", "country", "country_id", "city", "city_id"],
+        "size": 25,
+        "from": 0
+    })
+
+    context = {'results': res["hits"]["hits"]}
+
+    return render(request, 'search/results.html', context)
 
 class IndexView(generic.TemplateView):
     template_name = 'characters/index.html'
