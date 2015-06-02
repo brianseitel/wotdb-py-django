@@ -19,6 +19,7 @@ class Command(BaseCommand):
             'mappings': {
                 'all': {
                     "properties": {
+                        "id":                {'type': "integer"},
                         "name":              {'type': "string"},
                         "description":       {"type": "string"},
                         "gender":            {"type": "string"},

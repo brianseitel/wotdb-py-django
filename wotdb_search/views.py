@@ -17,10 +17,21 @@ def search(request):
             "bool": {
                 "should": [
                     {
-                        "match": { "name": { "query": query, "boost": 2, "fuzziness": 2}}
+                        ## Match specific fields first
+                        "multi_match": {
+                            "query": query,
+                            "boost": 2,
+                            "fuzziness": 1,
+                            "fields": ["name","channeler_type","clan","sept","gender","society","job"]
+                        }
                     },
                     {
-                        "fuzzy_like_this": { "like_text": query, "max_query_terms": 12, "boost": 0.5 }
+                        # Lower the score for description matches -- probably weakest
+                        "match": { "description": { "query": query, "boost": 0.1, "fuzziness": 2}}
+                    },
+                    {
+                        ## Everything else gets normal scores
+                        "query_string": { "query": query, "default_operator": "OR" }
                     }
                 ]
             }
@@ -31,7 +42,7 @@ def search(request):
     })
 
     context = {'results': res["hits"]["hits"]}
-
+    print context
     return render(request, 'search/results.html', context)
 
 class IndexView(generic.TemplateView):

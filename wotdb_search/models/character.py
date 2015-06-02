@@ -85,6 +85,7 @@ class Character(models.Model):
 
     def build_payload(self):
         doc = {
+            'id': self.id,
             'name': self.name,
             'description': self.description,
             'gender': self.gender,
