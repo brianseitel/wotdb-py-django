@@ -1,47 +1,48 @@
 {% load staticfiles %}
-
-{% if is_paginated %}
-    <div class="pager">
-        <span class="page-links">
-            {% if pov_list.has_previous %}
-                <a href="{{ request.path }}?page={{ pov_list.previous_page_number }}">
-                    <img src="{% static 'images/prev.png' %}" class="prev"/>
-                </a>
-            {% endif %}
-            <span class="page-current" style="float:left;margin">
-                Page {{ pov_list.number }} of {{ pov_list.paginator.num_pages }}
+<div class="description">
+    <h4 style="margin-left: 15px;">Points of View</h4>
+    {% if is_paginated %}
+        <div class="pager">
+            <span class="page-links">
+                {% if pov_list.has_previous %}
+                    <a href="{{ request.path }}?page={{ pov_list.previous_page_number }}">
+                        <img src="{% static 'images/prev.png' %}" class="prev"/>
+                    </a>
+                {% endif %}
+                <span class="page-current" style="float:left;margin">
+                    Page {{ pov_list.number }} of {{ pov_list.paginator.num_pages }}
+                </span>
+                {% if pov_list.has_next %}
+                    <a href="{{ request.path }}?page={{ pov_list.next_page_number }}">
+                        <img src="{% static 'images/next.png' %}" class="next"/>
+                    </a>
+                {% endif %}
             </span>
-            {% if pov_list.has_next %}
-                <a href="{{ request.path }}?page={{ pov_list.next_page_number }}">
-                    <img src="{% static 'images/next.png' %}" class="next"/>
-                </a>
-            {% endif %}
-        </span>
-    </div>
-{% endif %}
-<table id="povs_table">
-    <thead>
-        <tr>
-            <th>Book</th>
-            <th>Ch. #</th>
-            <th>Chapter</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% if pov_list.object_list %}
-            {% for pov in pov_list %}
-                {% cycle 'even' '' as rowcolors silent %}
-                <tr class="{{ rowcolors }}">
-                    <td>{{ pov.book.title }}</td>
-                    <td>{{ pov.chapter.number }}</td>
-                    <td>{{ pov.chapter.title }}</td>
-                </tr>
-            {% endfor %}
-        {% else %}
+        </div>
+    {% endif %}
+    <table id="povs_table">
+        <thead>
             <tr>
-                <td colspan="3">No POVs available for this character.</td>
+                <th>Book</th>
+                <th>Ch. #</th>
+                <th>Chapter</th>
             </tr>
-        {% endif %}
-    </tbody>
-    
-</table>
+        </thead>
+        <tbody>
+            {% if pov_list.object_list %}
+                {% for pov in pov_list %}
+                    {% cycle 'even' '' as rowcolors silent %}
+                    <tr class="{{ rowcolors }}">
+                        <td>{{ pov.book.title }}</td>
+                        <td>{{ pov.chapter.number }}</td>
+                        <td>{{ pov.chapter.title }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3">No POVs available for this character.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>

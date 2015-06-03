@@ -24,4 +24,19 @@ class Place(models.Model):
         return self.name
 
     def characters(self):
+        from wotdb_search.models.character import Character
         return Character.objects.filter(country_id=self.id) | Character.objects.filter(city_id=self.id)
+
+    def interviews(self, page):
+        es = Elasticsearch()
+
+        res = es.search(index="wotdb_interview",doc_type="all", body={
+            "query": {
+                "query_string": { "query": self.name }
+            },
+            "fields": ["id", "name", "question", "answer"],
+            "size": 25,
+            "from": 0
+        })
+
+        return res["hits"]["hits"]

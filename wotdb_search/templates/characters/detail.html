@@ -92,16 +92,10 @@
             <p class="credit">For more details on {{ character.name }}, visit <a href="http://www.encyclopaedia-wot.org" style="color:#E5BA0D" target="_blank">Encyclopaedia WoT</a>.</p>
         </div>
 
-        <div class="description">
-            <h4 style="margin-left: 15px;">Points of View</h4>
-            {% load characters %}
-            {% pov_list character page %}
-        </div>
+        {% load characters %}
+        {% pov_list character page %}
 
-        <div class="description">
-            <h4 style="margin-left: 15px;">Interview Questions</h4>
-            {% interview_list character page %}
-        </div>
+        {% interview_list character page %}
     </div>
 </div>
 {% endblock %}
