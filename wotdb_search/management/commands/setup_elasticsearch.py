@@ -10,6 +10,13 @@ class Command(BaseCommand):
         response = requests.delete(settings.ES_HOST + '/wotdb_character')
 
         # CREATE NEW INDEX
+
+        self.characters_index()
+        self.interviews_index()
+
+        return
+
+    def characters_index(self):
         data = {
             'dynamic': 'strict',
             'settings': {
@@ -48,4 +55,26 @@ class Command(BaseCommand):
             }
         }
         response = requests.put(settings.ES_HOST + '/wotdb_character/', data=json.dumps(data))
+        print response.text
+
+    def interviews_index(self):
+        data = {
+            'dynamic': 'strict',
+            'settings': {
+                'number_of_shards': 1,
+                'number_of_replicas': 1
+            },
+            'mappings': {
+                'all': {
+                    "properties": {
+                        "id":                {'type': "integer"},
+                        "name":              {'type': "string"},
+                        "question":          {"type": "string"},
+                        "answer":            {"type": "string"},
+                        "date":              {"type": "string"},
+                    }
+                }
+            }
+        }
+        response = requests.put(settings.ES_HOST + '/wotdb_interview/', data=json.dumps(data))
         print response.text

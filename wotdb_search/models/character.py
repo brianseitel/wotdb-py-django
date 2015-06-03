@@ -125,3 +125,16 @@ class Character(models.Model):
             doc['job_id'] = self.job_id
 
         return doc
+
+    def interviews(self):
+        es = Elasticsearch()
+        res = es.search(index="wotdb_interview",doc_type="all", body={
+            "query": {
+                "query_string": { "query": self.name }
+            },
+            "fields": ["id", "name", "question", "answer"],
+            "size": 25,
+            "from": 0
+        })
+
+        return res["hits"]["hits"]

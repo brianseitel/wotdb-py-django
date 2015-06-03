@@ -108,14 +108,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="even">
-                        <td>
-                            <strong>Question</strong>
-                            <br/>
-                            Answer goes here
-                        </td>
-                        <td><a href="/interview/SOME_ID_HERE">View More Details</a></td>
-                    </tr>
+                    {% if character.interviews %}
+                        {% for interview in character.interviews %}
+                            <tr class="even">
+                                <td>
+                                    <strong>{{ interview.fields.question.0 }}</strong>
+                                </td>
+                                <td width="150"><a href="/interview/{{ interview.fields.id.0 }}">View Answer</a></td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
                 </tbody>
             </table>
         </div>
