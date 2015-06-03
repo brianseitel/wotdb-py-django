@@ -11,5 +11,6 @@ class Chapter(models.Model):
         app_label = "wotdb_search"
   
     def characters(self):
+        from wotdb_search.models.pointofview import PointOfView
         povs = PointOfView.objects.all().filter(chapter_id=self.id)
         return povs

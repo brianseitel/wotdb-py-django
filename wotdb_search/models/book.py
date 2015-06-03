@@ -8,4 +8,6 @@ class Book(models.Model):
         app_label = "wotdb_search"
         
     def chapters(self):
+        from wotdb_search.models.chapter import Chapter
+
         return Chapter.objects.filter(book_id=self.id).extra(order_by = ['number'])

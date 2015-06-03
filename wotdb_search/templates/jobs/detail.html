@@ -5,11 +5,12 @@
         <h1>{{ job.name }}</h1>
         <div class="smallcol">
             <div class="box basic">
-                <h5>Description</h5>
-                <p> {{ job.description }} </p>
+                <h4>Description</h4>
+                <p> {{ job.description }}</p>
             </div>
         </div>
          <div class="bigcol">
+            <h4 style="margin-left:15px">Characters</h4>
             {% load characters %}
             {% character_list characters page %}
         </div>

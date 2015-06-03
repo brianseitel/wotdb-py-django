@@ -28,7 +28,7 @@
             </tr>
         </thead>
         <tbody>
-            {% if character_list.object_list > 0 %}
+            {% if character_list %}
                 {% for character in character_list.object_list %}
                     {% cycle 'even' '' as rowcolors silent %}
                     <tr class="{{ rowcolors }}">

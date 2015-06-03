@@ -3,8 +3,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 register = template.Library()
 
-from wotdb_search.models import Character, PointOfView
-
+from wotdb_search.models.character import Character
+from wotdb_search.models.pointofview import PointOfView
 def character_list(context, characters, page):
     paginator = Paginator(characters, 25)
 
@@ -38,8 +38,8 @@ def pov_list(context, character, page):
     }
 register.inclusion_tag('povs/list.html', takes_context=True)(pov_list)
 
-def interview_list(context, character, page):
-    interviews = character.interviews(page)
+def interview_list(context, model, page):
+    interviews = model.interviews(page)
 
     return {
         'interviews': interviews

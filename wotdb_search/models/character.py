@@ -1,9 +1,9 @@
 from django.db import models
 from elasticsearch import Elasticsearch
 from wotdb_search.models.channeler_type import ChannelerType
+from wotdb_search.models.place import Place
 from wotdb_search.models.clan import Clan
 from wotdb_search.models.job import Job
-from wotdb_search.models.place import Place
 from wotdb_search.models.sept import Sept
 from wotdb_search.models.society import Society
 
