@@ -37,3 +37,11 @@ def pov_list(context, character, page):
         'pov_list': pov_list
     }
 register.inclusion_tag('povs/list.html', takes_context=True)(pov_list)
+
+def interview_list(context, character, page):
+    interviews = character.interviews(page)
+
+    return {
+        'interviews': interviews
+    }
+register.inclusion_tag('interviews/list.html', takes_context=True)(interview_list)

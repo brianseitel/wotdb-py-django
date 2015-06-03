@@ -126,8 +126,9 @@ class Character(models.Model):
 
         return doc
 
-    def interviews(self):
+    def interviews(self, page):
         es = Elasticsearch()
+
         res = es.search(index="wotdb_interview",doc_type="all", body={
             "query": {
                 "query_string": { "query": self.name }

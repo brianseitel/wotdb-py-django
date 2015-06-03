@@ -1,0 +1,20 @@
+<table id="interview_table">
+    <thead>
+        <tr>
+            <th>Question</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if interviews %}
+            {% for interview in interviews %}
+                <tr class="even">
+                    <td>
+                        <strong>{{ interview.fields.question.0 }}</strong>
+                    </td>
+                    <td width="150"><a href="/interview/{{ interview.fields.id.0 }}">View Answer</a></td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </tbody>
+</table>
