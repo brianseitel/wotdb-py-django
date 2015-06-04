@@ -9,6 +9,9 @@ import json
 from .models import Character, Place, Interview, PointOfView, Book, Chapter, Job
 # Create your views here.
 
+def about(request):
+    return render(request, 'about.html', {})
+    
 def search(request):
     query = request.POST['terms']
     es = Elasticsearch()
@@ -42,7 +45,6 @@ def search(request):
     })
 
     context = {'results': res["hits"]["hits"]}
-    print context
     return render(request, 'search/results.html', context)
 
 class IndexView(generic.TemplateView):
