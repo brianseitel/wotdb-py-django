@@ -10,8 +10,10 @@ from .models import Character, Place, Interview, PointOfView, Book, Chapter, Job
 # Create your views here.
 
 def about(request):
-    return render(request, 'about.html', {})
     
+def contact(request):
+    return render(request, 'contact.html', {})
+
 def search(request):
     query = request.POST['terms']
     es = Elasticsearch()
